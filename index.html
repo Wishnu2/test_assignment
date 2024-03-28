@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Assignment - Wishnu</title>
         <link rel="stylesheet" href="css/style.css">
+        <script src="js/script.js"></script>
     </head>
 
     <body>
         <header class="header-container">
             <section class="logo-icon"></section>
             <section class="nav-container">
-                <button>Home</button>
-                <button>Package</button>
-                <button>Contact</button>
+                <button><a href="#main-container">Home</a></button>
+                <button><a href="#About Us">About Us</a></button>
+                <button><a href="#Contact">Contact</a></button>
             </section>
         </header>
         <hr />
@@ -23,35 +25,75 @@
             </header>
 
             <div class="main-content-container">
-                <!-- Slide banner -->
-                <div style="height: 200px; width: 100%; background-color: black; margin-right: 16px;"></div>
-                <!-- Form -->
-                <div style="height: 200px; width: 80%; background-color: maroon;">
+                <div class="slide-container">
+                    <div class="mySlides">
+                        <img class="photo" src="/assets/foto1.jpg">
+                        <img class="photo" src="/assets/foto2.jpg">
+                        <img class="photo" src="/assets/foto3.jpg">
+                    </div>
+                </div>
+                
+                <script> //Script internal banner autoslide
+                    let slideIndex = 0;
+                        carousel();
+
+                    function carousel() {
+                        let i;
+                        let slides = document.getElementsByClassName("photo");
+                        for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                        }
+                        slideIndex++;
+                        if (slideIndex > slides.length) {slideIndex = 1}
+                        slides[slideIndex - 1].style.display = "block";
+                        setTimeout(carousel, 3000); // Ubah gambar setiap 3 detik
+                        }
+                </script>
+
+                <form class="form-container" name="contact-form">
+                    <p>TAKE YOUR HEART HERE!</p><br />
                     <label>Name:</label><br />
-                    <input type="text" class="name-input"><br />
+                    <input type="text" class="name-input" name="user-name"><br />
                     <label>Email:</label><br />
-                    <input type="text" class="name-input"><br />
+                    <input type="text" class="mail-input" name="user-name"><br />
                     <label for="package">Select Package:</label><br />
                     <select name="package" id="package">
                         <option value="exclusive">Exclusive</option>
                         <option value="premium">Premium</option>
                         <option value="regular">Regular</option>
                     </select><br />
-                    <button type="button">Send</button>
-                </div>
-                
+                    <button type="button" onclick="submitForm()">Send</button>
+                </form>   
             </div>
 
             <article>
-                <p>
+                <section id="About Us">
                     <h2>About Us</h2>
-                    <h4>Heart Travel is a travel agent that has been established since 2024. We specialize in tour guides for the Japan region.</h4>
-                </p>
+                    <p>Heart Travel is a travel agency that has been operating since 2024, 
+                        providing exceptional travel experiences to our valued clients. 
+                        Specializing in tour guides for the captivating region of Japan, 
+                        we are dedicated to offering personalized and memorable journeys 
+                        that cater to the unique interests and preferences of each traveler.</p>
+                    <p>With a team of experienced professionals who are passionate about travel and well-versed in the culture, 
+                        history, and attractions of Japan, we strive to create immersive experiences that go beyond the ordinary. 
+                        Whether it's exploring the bustling streets of Tokyo, savoring traditional cuisine in Kyoto, 
+                        or admiring the natural beauty of Mount Fuji, we ensure that every aspect of your journey is carefully curated 
+                        to exceed your expectations.</p>
+                    <p>At Heart Travel, we understand that travel is more than just visiting destinations - it's about creating unforgettable memories and forging meaningful connections. 
+                        That's why we go above and beyond to provide personalized assistance, expert guidance, and unparalleled customer service every step of the way.
+                        Join us on a journey of discovery and let Heart Travel be your trusted partner in exploring the wonders of Japan.</p>
+                </section>
+
+                <section id="Contact">
+                    <h2>Contact</h2>
+                    <p>Wishnu : 081234567890</p>
+                    <p>Mail : hearttravel@mail.com</p>
+                </section>
 
             </article>
         
         </main>
-
+        <hr />
     </body>
 
 </html>
